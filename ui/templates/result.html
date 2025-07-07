@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="../static/result.css">
+</head>
+<body>
+    <h1>Search Result</h1>
+
+    <div>
+        <h2>Searched Image</h2>
+        <img src="{{ uploaded_filename }}" alt="Searched Image" width="300">
+    </div>
+
+    <div>
+        <h2>Matched Image</h2>
+        {% if first_image %}
+            {% for image in first_image %}
+            <img src="{{ image }}" alt="{{ image.split('/')[-1].split('.')[0] }}" width="300">
+            {% endfor %}
+        {% else %}
+            <p>No image found.</p>
+        {% endif %}
+    </div>
+
+    <br>
+    <a href="/">⬅ Search another image</a>
+</body>
+</html>
